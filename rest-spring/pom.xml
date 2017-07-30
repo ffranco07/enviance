@@ -1,0 +1,159 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.enviance</groupId>
+  <artifactId>rest-spring</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  
+  <name>rest-spring</name>
+  
+  <!-- Repositories -->
+  <repositories>
+    <repository>
+      <id>repository.springframework.maven.release</id>
+      <name>Spring Framework Maven Release Repository</name>
+      <url>http://maven.springframework.org/release</url>
+    </repository>
+  </repositories>
+  
+  <!-- Properties -->
+  <properties>
+    <spring.framework.version>3.0.6.RELEASE</spring.framework.version>
+    <org.springframework.ldap.version>1.3.1.RELEASE</org.springframework.ldap.version>
+    <jackson.version>1.8.6</jackson.version>
+    <cxf.version>2.7.0</cxf.version>
+  </properties>
+  
+  <dependencies>
+    <!-- Spring framework -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.framework.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.framework.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>${spring.framework.version}</version>
+    </dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+    
+    <!-- Hibernate -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>3.3.1.GA</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-annotations</artifactId>
+      <version>3.4.0.GA</version>
+    </dependency>
+
+		<!-- Java bytecode processor -->
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.4.GA</version>
+		</dependency>
+
+		<!-- MySql JDBC Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.23</version>
+		</dependency>
+
+    <!-- Java EE 6.0 -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>6.0</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- Log4j -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- Selenium -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>2.53.0</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- Junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+  
+  <build>
+    <resources>
+      <resource>
+				<directory>src/main/resources/META-INF</directory>
+				<includes>
+					<include>jboss.xml</include>
+					<include>persistence.xml</include>
+				</includes>
+        <targetPath>${project.build.directory}/classes/META-INF</targetPath>
+      </resource>
+    </resources> 
+    
+    <plugins>
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+      </plugin>
+      
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warName>${project.artifactId}</warName>
+					<webappDirectory>${project.build.directory}/webapp</webappDirectory>
+					<!--<archive>
+					<manifestEntries>
+					<Dependencies></Dependencies>
+				</manifestEntries>
+				</archive>
+					-->
+					<!-- So maven doesn't require web.xml -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
