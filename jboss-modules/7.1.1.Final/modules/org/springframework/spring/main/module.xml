@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<module xmlns="urn:jboss:module:1.1" name="org.springframework.spring">
+  <resources>
+    <resource-root path="spring-aop-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-asm-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-beans-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-context-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-context-support-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-core-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-expression-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-jdbc-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-orm-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-tx-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-web-3.0.6.RELEASE.jar"/>
+    <resource-root path="spring-webmvc-3.0.6.RELEASE.jar"/>
+  </resources>
+  <dependencies>
+    <module name="com.mysql"/>
+    <module name="org.hibernate" slot="3"/>
+    <module name="javax.api"/>
+    <module name="javax.servlet.jsp.api"/>
+    <module name="javax.persistence.api"/>
+    <module name="javax.transaction.api"/>
+    <module name="org.apache.commons.logging"/>
+    <module name="org.jboss.vfs"/>
+    <module name="org.dom4j"/>
+    <module name="org.slf4j"/>
+    <module name="org.apache.log4j"/>
+    <module name="org.jboss.logging"/>
+  </dependencies>
+</module>
